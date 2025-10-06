@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Checker</title>
+
+    <style>
+        .myScr {
+            background-color: red;
+            width: 10rem;
+            height: 10rem;
+            overflow-y: scroll;
+            transition: 2s;
+        }
+
+        .myScr:hover {
+            transition: 2s;
+            background-color: yellowgreen;
+            animation-name: box;
+            animation-duration: 2s;
+            animation-iteration-count: 2;
+        }
+
+        @keyframes box {
+            10%{
+                transform: rotateX('100deg');
+            }
+            50%{
+                transform: translateX(200px);
+            }
+            100%{
+                transform: rotateX('10deg');
+            }
+
+        }
+    </style>
+
+
+
+    <script>
+
+        function startDownloadTest() {
+            startTime = (new Date()).getTime();
+            var download = new Image();
+            download.src = 'https://www.pexels.com/photo/four-assorted-color-horse-on-grass-fields-near-tall-trees-during-sunset-1366913/' + startTime;
+            download.onload = function () {
+                endTime = (new Date()).getTime();
+                calculateDownloadSpeed();
+            }
+        }
+
+        function calculateDownloadSpeed() {
+            var duration = (endTime - startTime) / 1000;
+            var bitsLoaded = downloadSize * 8;
+            var bps = (bitsLoaded / duration).toFixed(2);
+            var kbps = (bps / 1024).toFixed(2);
+            var mbps = (kbps / 1024).toFixed(2);
+
+            console.log(`Your connection speed: 
+    ${bps} bps
+    ${kbps} kbps
+    ${mbps} mbps`);
+        }
+
+        startDownloadTest();
+
+        function myFunction(e) {
+            console.log(e);
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <h1>Your <span style="color: red;">Connection</span> Speed is.....</h1>
+
+
+    <div class="myScr" onscroll="myFunction(event)">
+        <p>....</p>
+        <p>....</p>
+        <p>....</p>
+        <p>....</p>
+        <p>....</p>
+        <p>....</p>
+        <p>....</p>
+        <p>....</p>
+        <p>....</p>
+        <p>....</p>
+        <p>....</p>
+        <p>....</p>
+
+    </div>
+
+
+
+</body>
+
+</html>
