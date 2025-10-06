@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <style>
+        :root{
+            --white: aliceblue;
+        }
+        .taskBeDone {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+        .white{
+            color: var(--white);
+        }
+    </style>
+</head>
+
+<body style="background:linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);">
+
+    <h1 class="white">Todo</h1>
+
+    <div class="">
+        <label for="" class="white">Enter a task</label>
+        <br>
+        <input autocomplete="off" type="text" id="enteredTask" class="">
+        <button onclick="subTask();" id="submitBtn">Submit</button>
+        <ul id="listOfTasks">
+
+        </ul>
+    </div>
+
+    <script>
+
+        function subTask() {
+            let task = document.getElementById('enteredTask').value;
+            let taskDiv = document.getElementById('listOfTasks');
+            if (task && task != "") {
+                let displyList = document.createElement('li');
+                displyList.classList = "taskList white";
+                displyList.append(task);
+
+                let createBtn = document.createElement('button');
+                createBtn.innerHTML = "Done";
+                createBtn.id = "deleteIndiList";
+                createBtn.style = "margin: 5px;"
+                displyList.append(createBtn);
+
+                if (createBtn != null) {
+                    createBtn.addEventListener("click",
+                        function sayYes() {
+                            displyList.classList = "taskBeDone";
+                        }
+                    )
+                }
+                console.log(displyList);
+                taskDiv.append(displyList);
+                
+            }
+            else {
+                alert("Task should not be empty");
+            }
+            task.innerHTML = '';
+            console.error(task);
+        }
+
+    </script>
+
+</body>
+
+</html>

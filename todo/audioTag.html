@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>audioTag</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .bgImg {
+            height: 731px;
+            width: 100%;
+        }
+
+        .rightBike {
+            position: absolute;
+            width: 100px;
+            right: 10px;
+            bottom: 48px;
+            transition: 2s;
+            animation: move 7s infinite;
+        }
+
+        /* .rightBike:hover{
+        } */
+        @keyframes move {
+            100% {
+                transform: translateX(-1400px);
+            }
+        }
+
+        .rightSidePlane {
+            position: absolute;
+            width: 100px;
+            top: 50px;
+            right: 10px;
+            transition: 1s;
+            /* bottom: 48px; */
+            background: white;
+            animation: takeOff 15s infinite;
+        }
+
+        @keyframes takeOff {
+            100% {
+                transform: translateX(-1400px);
+            }
+
+            /* 80%{
+                transform: translateY(-500px);
+            } */
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <script>
+        function showInternetSpeed() {
+            console.log("Working " + Object.keys(window));
+
+            // var myName = "Vedala pulla naesathukku Sevatha pulla paasathukku Azhagar mala kaathu vandhu Thoodhu sollaadho"
+            var myName = "Girl, you know I want your love Your love was handmade for somebody like me Come on now, follow my lead I may be crazy, don't mind me Say: Boy, let's not talk too much Grab on my waist and put that body on me Come on now, follow my lead Come, come on now, follow my lead I'm in love with the shape of you"
+            // var myName = "Thala always mass luv u thala"
+            var voices = speechSynthesis.getVoices();
+            var saymyName = new SpeechSynthesisUtterance(myName);
+            speechSynthesis.speak(saymyName);
+
+        }
+    </script>
+
+    <!-- <h1>Loading....</h1> -->
+    <div class="">
+        <img src="../assets/596l_1lnc_210309_generated.jpg" class="bgImg">
+        <img src="../assets/sticker-template-with-red-scooter-isolated.png" class="rightBike" alt="">
+        <img src="../assets/airplane-cartoon-style-isolated.png" class="rightSidePlane" alt="">
+        <!-- <img src="../assets/27156910-removebg-preview.png" class="rightSidePlane" alt=""> -->
+        <button onclick="showInternetSpeed()">Show Speed</button>
+    </div>
+
+
+
+
+</body>
+
+</html>
